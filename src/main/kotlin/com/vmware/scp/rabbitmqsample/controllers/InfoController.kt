@@ -10,6 +10,7 @@ import java.util.*
 
 @Controller
 class InfoController(private val rabbitMQClient: RabbitMQClient) {
+    private var open = false;
 
     @GetMapping("/")
     @Throws(Exception::class)
@@ -19,6 +20,8 @@ class InfoController(private val rabbitMQClient: RabbitMQClient) {
             rabbitMQClient.send(message)
             val receivedMessage: String = rabbitMQClient.receive()
 
+            open = !open
+            model.addAttribute("open", open)
             model.addAttribute("message_sent", message)
             model.addAttribute("message_received", receivedMessage)
             model.addAttribute("connection_status", "Connected and sent message:)")

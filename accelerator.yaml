@@ -1,0 +1,13 @@
+accelerator:
+  displayName: Sensors
+  description: A template app to control your sensors
+  iconUrl: https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Light_sensor.png/220px-Light_sensor.png
+  tags: []
+  options:
+  - name: optionName
+    label: Nice Label
+    display: true
+    defaultValue: ""
+engine:
+  include:
+  - '**'

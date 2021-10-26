@@ -16,21 +16,67 @@ as noted in the LICENSE file.
 
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+<style>
+    table {
+        border: 3px solid black;
+        margin-top: 5rem;
+    }
+
+    tr {
+        min-height: 100px;
+    }
+
+    td {
+        border: 1px solid black;
+        padding: 1rem;
+    }
+
+    .status-box {
+        min-width: 100px;
+        min-height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        font-weight: bold;
+    }
+</style>
+
 <head>
-    <title>SSO RabbitMQ example</title>
+    <title>Sensors Application</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
+
 <body>
-<h2>RabbitMQ Example</h2>
+    <h2>Sensors Application</h2>
 
-<h3>Connection Status</h3>
-<pre th:text="${connection_status}"></pre>
+    <div th:switch="${open}"> 
+        <div th:case="true" class="status-box" style="background-color: lightgreen;">OPEN</div>
+        <div th:case="false" class="status-box" style="background-color: lightcoral;">CLOSED</div>
+    </div>
 
-<h3>Message sent</h3>
-<pre th:text="${message_sent}"></pre>
 
-<h3>Message received</h3>
-<pre th:text="${message_received}"></pre>
-
+    <!-- table showing connection status -->
+    <table>
+        <tr>
+            <td>Service Connection Status</td>
+            <td>
+                <pre th:text="${connection_status}"></pre>
+            </td>
+        </tr>
+        <tr>
+            <td>Message sent</td>
+            <td>
+                <pre th:text="${message_sent}"></pre>
+            </td>
+        </tr>
+        <tr>
+            <td>Message received</td>
+            <td>
+                <pre th:text="${message_received}"></pre>
+            </td>
+        </tr>
+    </table>
 </body>
+
 </html>
