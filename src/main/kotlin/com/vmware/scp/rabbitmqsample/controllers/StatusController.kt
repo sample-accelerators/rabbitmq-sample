@@ -13,7 +13,6 @@ class StatusController() {
     @GetMapping("/status")
     @Throws(Exception::class)
     fun status(): Boolean {
-        // Totally fine to mock this here
         return true  
     }
 }
