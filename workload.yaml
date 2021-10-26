@@ -1,0 +1,21 @@
+apiVersion: v1
+items:
+- apiVersion: carto.run/v1alpha1
+  kind: Workload
+  metadata:
+    labels:
+      apps.tanzu.vmware.com/workload-type: web
+    name: sensors
+    namespace: default
+  spec:
+    serviceClaims:
+    - name: rmq
+      ref:
+        apiVersion: rabbitmq.com/v1beta1
+        kind: RabbitmqCluster
+        name: rmq-1
+    source:
+      git:
+        ref:
+          branch: v0.2.0
+        url: https://github.com/alexbarbato/rabbitmq-sample
