@@ -17,4 +17,4 @@ spec:
     git:
       ref:
         branch: v0.2.0
-      url: https://github.com/alexbarbato/rabbitmq-sample
+      url: https://github.com/jhvhs/rabbitmq-sample

@@ -4,6 +4,6 @@ metadata:
   name: sensors
 spec:
   git:
-    url: https://github.com/alexbarbato/rabbitmq-sample
+    url: https://github.com/jhvhs/rabbitmq-sample
     ref:
       branch: v0.2.0
