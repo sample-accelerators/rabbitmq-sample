@@ -1,7 +1,7 @@
 apiVersion: accelerator.apps.tanzu.vmware.com/v1alpha1
 kind: Accelerator
 metadata:
-  name: sample-rabbitmq-appt r
+  name: sample-rabbitmq-app
 spec:
   git:
     url: https://github.com/gmrodgers/rabbitmq-sample
