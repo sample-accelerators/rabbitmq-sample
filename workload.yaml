@@ -4,11 +4,11 @@ kind: Workload
 metadata:
   labels:
     apps.tanzu.vmware.com/workload-type: web
-  name: sensors
+  name: sample-rabbitmq-app
   namespace: default
 spec:
   serviceClaims:
-  - name: rmq
+  - name: rabbitmq
     ref:
       apiVersion: rabbitmq.com/v1beta1
       kind: RabbitmqCluster
@@ -16,5 +16,5 @@ spec:
   source:
     git:
       ref:
-        branch: v0.2.0
-      url: https://github.com/jhvhs/rabbitmq-sample
+        branch: main
+      url: https://github.com/gmrodgers/rabbitmq-sample

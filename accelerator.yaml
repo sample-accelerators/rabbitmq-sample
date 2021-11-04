@@ -1,12 +1,18 @@
 accelerator:
-  displayName: Sensors
-  description: A template app to control your sensors
-  iconUrl: https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Light_sensor.png/220px-Light_sensor.png
+  displayName: sample-rabbitmq-app
+  description: An app that utilises RabbitMQ
+  iconUrl: https://raw.githubusercontent.com/simple-starters/icons/master/icon-tanzu-light.png
   tags: []
   options:
   - name: workloadName
     inputType: text
     label: The name you'd like the workload to have.
+    display: true
+    defaultValue: ""
+    required: true
+  - name: rabbitmqName
+    inputType: text
+    label: The name of the rabbitmq you'd like to claim.
     display: true
     defaultValue: ""
     required: true
@@ -18,5 +24,9 @@ engine:
     chain:
     - type: ReplaceText
       substitutions:
-      - text: sensors
+      - text: sample-rabbitmq-app
         with: "#workloadName"
+    - type: ReplaceText
+      substitutions:
+      - text: rmq-1
+        with: "#rabbitmqName"

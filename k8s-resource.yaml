@@ -1,9 +1,9 @@
 apiVersion: accelerator.apps.tanzu.vmware.com/v1alpha1
 kind: Accelerator
 metadata:
-  name: sensors
+  name: sample-rabbitmq-appt r
 spec:
   git:
-    url: https://github.com/jhvhs/rabbitmq-sample
+    url: https://github.com/gmrodgers/rabbitmq-sample
     ref:
-      branch: v0.2.0
+      branch: main
