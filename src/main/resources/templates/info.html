@@ -16,47 +16,108 @@ as noted in the LICENSE file.
 
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<style>
-    table {
-        border: 3px solid black;
-        margin-top: 5rem;
-    }
-
-    tr {
-        min-height: 100px;
-    }
-
-    td {
-        border: 1px solid black;
-        padding: 1rem;
-    }
-
-    .status-box {
-        min-width: 100px;
-        min-height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 40px;
-        font-weight: bold;
-    }
-</style>
 
 <head>
     <title>Sensors Application</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Valve and its animation */
+        .valve {
+            background-color: lightgrey;
+            height: 300px;
+            width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .valve-middle {
+            flex: 1 0 auto;
+            background-color: lightgrey;
+            width: 150px;
+            height: 100px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .knob {
+            border-radius: 5px;
+            height: 200px;
+            width: 25px;
+            background-color: darkred;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .knob-center {
+            flex: 1 0 auto;
+            background-color: darkred;
+            border-radius: 10px;
+            height: 25px;
+            width: 35px;
+        }
+
+        .knob-turned {
+            transform: rotate(90deg);
+        }
+
+        .status-box {
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: lightcoral;
+        }
+
+        .open {
+            background-color: green;
+        }
+
+        /* Connection status table */
+        table {
+            border: 3px solid black;
+            margin-top: 5rem;
+        }
+
+        tr {
+            min-height: 100px;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 1rem;
+        }
+    </style>
 </head>
 
 <body>
     <h2>Sensors Application</h2>
 
-    <div th:switch="${open}"> 
-        <div th:case="true" class="status-box" style="background-color: lightgreen;">OPEN</div>
-        <div th:case="false" class="status-box" style="background-color: lightcoral;">CLOSED</div>
+    <div class="valve">
+        <div class="valve-middle">
+            <div class="knob" th:classappend="${open ? '' : 'knob-turned'}">
+                <div class="knob-center">
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="status-box" th:classappend="${open ? 'open' : ''}" th:text="${open ? 'OPEN' : 'CLOSED'}"></div>
 
 
-    <!-- table showing connection status -->
+    <!-- Table showing connection status -->
     <table>
         <tr>
             <td>Service Connection Status</td>
@@ -78,5 +139,4 @@ as noted in the LICENSE file.
         </tr>
     </table>
 </body>
-
 </html>
