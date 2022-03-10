@@ -108,13 +108,13 @@ as noted in the LICENSE file.
 
     <div class="valve">
         <div class="valve-middle">
-            <div class="knob" th:classappend="${open ? '' : 'knob-turned'}">
+            <div class="knob" th:classappend="${open} ? '' : 'knob-turned'">
                 <div class="knob-center">
                 </div>
             </div>
         </div>
     </div>
-    <div class="status-box" th:classappend="${open ? 'open' : ''}" th:text="${open ? 'OPEN' : 'CLOSED'}"></div>
+    <div class="status-box" th:classappend="${open} ? 'open' : ''" th:text="${open} ? 'OPEN' : 'CLOSED'"></div>
 
 
     <!-- Table showing connection status -->
